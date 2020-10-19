@@ -1,0 +1,80 @@
+<div class="container-fluid">
+    <div style="color: rgb(128, 160, 41);">
+        <h1 style="text-align:left;">Artist Form</h1>
+    </div>
+    <div class="container" class="col-md-4">
+        <form [formGroup]="artistForm" method="post" (ngSubmit)="addArtist()">
+            <div class="form-group">
+                <label class="col-md-8 control-label"><b>Artist Name:</b></label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input name="ArtistName" placeholder="Enter ArtistName" class="form-control" type="text"
+                            formControlName="ArtistName">
+                    </div>
+                    <br>
+                </div>
+                <label class="col-md-8 control-label"><b>Profession:</b></label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input name="Profession" placeholder="Enter Profession" class="form-control" type="text"
+                            formControlName="Profession">
+                    </div>
+                    <br>
+                </div>
+                <label class="col-md-8 control-label"><b>TitleId:</b></label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input name="TitleId" placeholder="Enter TitleId" class="form-control" type="text"
+                            formControlName="TitleId">
+                    </div>
+                    <br>
+                </div>
+                <label class="col-md-8 control-label"><b>MusicdirectorName:</b></label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input name="MusicdirectorName" placeholder="Enter MusicdirectorName" class="form-control"
+                            type="text" formControlName="MusicdirectorName">
+                    </div>
+                    <br>
+                </div>
+               
+                <button type="button"  class="col-md-4 btn btn-primary" (click)="addArtist()">Add</button>&nbsp;
+                <button type="button"  class="col-md-4 btn btn-primary" (click)="updateArtist()">Update</button>
+            </div>
+            <br>
+        </form>
+        <h3 style="color: black;"> Artist Details</h3>
+        <table class="table col-md-8" border="1">
+            <thead>
+                <tr style="background-color: #3e75b4;">
+                    <th colspan="1" style="color: white;">ArtistId</th>
+                    <th colspan="1" style="color: white;">ArtistName</th>
+                    <th colspan="1" style="color: white;">Profession</th>
+                    <th colspan="1" style="color: white;">TitleId</th>
+                    <th colspan="1" style="color: white;">MusicdirectorName</th>
+                    <!-- <th colspan="1" style="color: white;">Title</th>
+                    <th colspan="1" style="color: white;">MusicMaster</th> -->
+                    <th colspan="1" style="color: white;">Edit</th>
+                    <th colspan="1" style="color: white;">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let g of artist" style="background-color: white;">
+                    <td>{{g.artistId}}</td>
+                    <td>{{g.artistName}}</td>
+                    <td>{{g.profession}}</td>
+                    <td>{{g.titleId}}</td>
+                    <td>{{g.musicdirectorName}}</td>
+                    <!-- <td>{{g.title}}</td>
+                    <td>{{g.musicMaster}}</td> -->
+                    <td><button (click) ="editArtist(g.artistId)">Edit</button></td>
+                   <td><button (click) ="deleteArtist(g.artistId)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

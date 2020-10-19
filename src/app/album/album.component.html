@@ -1,0 +1,70 @@
+
+<div class="container-fluid">
+    <div style="color: rgb(128, 160, 41);">
+        <h1 style="text-align:left;">Album Form</h1>
+    </div>
+    
+    <div class="container" class="col-md-4">
+        <form [formGroup]="albumForm" method="post" (ngSubmit)="addAlbum()">
+            <div class="form-group">
+                <label class="col-md-8 control-label"><b>Album Name:</b></label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input name="AlbumName" placeholder="Enter AlbumName" class="form-control" type="text"
+                            formControlName="AlbumName">
+                    </div>                   
+                    <br>                  
+                </div>
+                <label class="col-md-8 control-label"><b>Year:</b></label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input name="Year" placeholder="Enter Year" class="form-control" type="text"
+                            formControlName="Year">
+                    </div>                   
+                    <br>                  
+                </div>
+                <label class="col-md-8 control-label"><b>Genre Id:</b></label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input name="GenreId" placeholder="Enter GenreId" class="form-control" type="text"
+                            formControlName="GenreId">
+                    </div>                   
+                    <br>                  
+                </div>
+              
+                <button type="button"  class="col-md-4 btn btn-primary" (click)="addAlbum()">Add</button>&nbsp;
+                <button type="button"  class="col-md-4 btn btn-primary" (click)="updateAlbum()">Update</button>
+            </div>
+            <br>
+        </form>
+        <h3 style="color: black;"> Album Details</h3>
+        <table class="table col-md-8" border="1">
+            <thead>
+                <tr style="background-color: #3e75b4;">
+                    <th colspan="1" style="color: white;">AlbumId</th>
+                    <th colspan="1" style="color: white;">AlbumName</th>
+                    <th colspan="1" style="color: white;">Year</th>
+                    <th colspan="1" style="color: white;">GenreId</th>
+                    <th colspan="1" style="color: white;">edit</th>
+                    <th colspan="1" style="color: white;">delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let g of album " style="background-color: white;">
+                    <td>{{g.albumId}}</td>
+                    <td>{{g.albumName}}</td>
+                    <td>{{g.year}}</td>
+                    <td>{{g.genreId}}</td>
+                    <td><button (click) ="editAlbum(g.albumId)">Edit</button></td>
+                   <td><button (click) ="deleteAlbum(g.albumId)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<!-- <app-title></app-title> -->

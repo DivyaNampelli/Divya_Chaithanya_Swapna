@@ -1,0 +1,67 @@
+<div class="container-fluid">
+    <div style="color: rgb(128, 160, 41);">
+        <h1 style="text-align:left;">Music Form</h1>
+    </div>
+    <div class="container" class="col-md-4">
+        <!-- <form [formGroup]="musicForm" method="post" (ngSubmit)="addMusic()">
+            <div class="form-group">
+                <label class="col-md-8 control-label"><b>GenreId:</b></label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input name="GenreId" placeholder="Enter GenreId" class="form-control" type="text"
+                            formControlName="GenreId">
+                    </div>                   
+                </div>
+                <label class="col-md-8 control-label"><b>AlbumId:</b></label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input name="AlbumId" placeholder="Enter AlbumId" class="form-control" type="text"
+                            formControlName="AlbumId">
+                    </div>                   
+                </div>
+                <label class="col-md-8 control-label"><b>TitleId:</b></label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input name="TitleId" placeholder="Enter TitleId" class="form-control" type="text"
+                            formControlName="TitleId">
+                    </div>                   
+                </div>
+                <label class="col-md-8 control-label"><b>ArtistId:</b></label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input name="ArtistId" placeholder="Enter ArtistId" class="form-control" type="text"
+                            formControlName="ArtistId">
+                    </div>                   
+                </div>
+                <br>
+                    <input type="submit" value="Submit" class="col-md-6 btn btn-primary">
+            </div>
+            <br>
+        </form> -->
+        <table class="table col-md-8" border="1">
+            <thead>
+                <tr style="background-color: #3e75b4;">              
+                    <th colspan="1" style="color: white;">GenereName</th>
+                    <th colspan="1" style="color: white;">AlbumName</th>
+                    <th colspan="1" style="color: white;">TitleName</th>
+                    <th colspan="1" style="color: white;">ArtistName</th>   
+                    <th colspan="1" style="color: white;">MusicDirectorName</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let g of music" style="background-color: white;">
+                    <td>{{g.genereName}}</td>
+                    <td>{{g.albumName}}</td>
+                    <td>{{g.titleName}}</td>
+                    <td>{{g.artistName}}</td>
+                    <td>{{g.musicdirectorName}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

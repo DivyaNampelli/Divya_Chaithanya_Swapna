@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <div style="color: rgb(128, 160, 41);">
+        <h1 style="text-align:left;">Title Form</h1>
+    </div>
+    <div class="container" class="col-md-4">
+        <form [formGroup]="titleForm" method="post" (ngSubmit)="addTitle()">
+            <div class="form-group">
+                <label class="col-md-8 control-label"><b>Title Name:</b></label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input name="TitleName" placeholder="Enter TitleName" class="form-control" type="text"
+                            formControlName="TitleName">
+                    </div>                   
+                </div>
+                <label class="col-md-8 control-label"><b>AlbumId:</b></label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input name="AlbumId" placeholder="Enter TitleName" class="form-control" type="text"
+                            formControlName="AlbumId">
+                    </div>                   
+                </div>
+                <br>
+                <button type="button"  class="col-md-4 btn btn-primary" (click)="addTitle()">Add</button>&nbsp;
+                <button type="button"  class="col-md-4 btn btn-primary" (click)="updateTitle()">Update</button>
+            </div>
+            <br>
+        </form>
+        <h3 style="color: black;"> Title Details</h3>
+        <table class="table col-md-8" border="1">
+            <thead>
+                <tr style="background-color: #3e75b4;">    
+                    <th colspan="1" style="color: white;">TitleId</th>
+                    <th colspan="1" style="color: white;">TitleName</th>             
+                    <th colspan="1" style="color: white;">AlbumId</th>
+                    <th colspan="1" style="color: white;">edit</th>
+                    <th colspan="1" style="color: white;">delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let g of getalltitles" style="background-color: white;">
+                    <td>{{g.titleId}}</td>
+                    <!-- <td>{{g.titleName}}</td> -->
+                    <td> <audio controls><source [src]="g.titleName" type="audio/ogg"></audio></td>
+                    <td>{{g.albumId}}</td>                   
+                    <td><button (click) ="editTitle(g.titleId)">Edit</button></td>
+                    <td><button (click) ="deleteTitle(g.titleId)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
